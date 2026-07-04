@@ -73,6 +73,7 @@
             background: transparent;
         }
 
+        /* CONTAINERUL INVITATIEI CU FUNDALUL ARTISTIC INTEGRAT (Mirii schițați + Verighete) */
         .scroll-container {
             max-width: 480px;
             margin: 0 auto;
@@ -84,8 +85,12 @@
             scroll-behavior: smooth;
             box-shadow: 0 0 50px rgba(0,0,0,0.4);
             position: relative;
-            background-image: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 100 100' opacity='0.03'%3E%3Cpath d='M10 10 C 30 20, 40 40, 50 70 C 60 40, 70 20, 90 10' stroke='%232c3e27' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+            
+            /* Fundal vectorizat premium inserat direct în cod - Schiță Mire, Mireasă și Verighete */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%25' height='100%25'%3E%3Cpath d='M 30 120 Q 80 70, 150 110 T 250 80' stroke='%23d4e2d4' stroke-width='1.5' fill='none' opacity='0.4'%3E%3C/path%3E%3Cpath d='M 280 320 Q 330 270, 380 340' stroke='%23e8decf' stroke-width='1.5' fill='none' opacity='0.4'%3E%3C/path%3E%3Cg transform='translate(75, 45)' opacity='0.08'%3E%3Cpath d='M 120 280 L 120 220 Q 120 180, 140 160 Q 148 135, 145 110 Q 155 90, 150 70 Q 140 60, 135 75 Q 125 70, 128 90 Q 120 110, 125 130 Q 110 145, 110 170 L 95 210 L 95 280' stroke='%232c3e27' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3C/path%3E%3Cpath d='M 175 280 Q 160 250, 170 210 Q 175 190, 170 170 Q 180 150, 175 125 Q 185 105, 180 85 Q 170 75, 162 90 Q 158 95, 155 110 Q 160 135, 155 155 Q 160 170, 152 185 L 142 210 Q 135 240, 130 280' stroke='%232c3e27' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3C/path%3E%3Cpath d='M 175 88 Q 220 120, 205 240 Q 190 280, 150 285' stroke='%232c3e27' stroke-width='1' stroke-dasharray='3 3' fill='none'%3E%3C/path%3E%3Ccircle cx='152' cy='180' r='8' stroke='%23c4a473' stroke-width='1.5' fill='none'%3E%3C/circle%3E%3Ccircle cx='158' cy='185' r='6' stroke='%232c3e27' stroke-width='1.2' fill='none'%3E%3C/circle%3E%3Cpath d='M 152 188 L 150 200 M 156 191 L 158 202' stroke='%232c3e27' stroke-width='1.5'%3E%3C/path%3E%3C/g%3E%3Cg transform='translate(200, 345)' opacity='0.15'%3E%3Cellipse cx='-9' cy='0' rx='16' ry='10' stroke='%23c4a473' stroke-width='2.5' fill='none' transform='rotate(-15)'%3E%3C/ellipse%3E%3Cellipse cx='9' cy='3' rx='16' ry='10' stroke='%23b39262' stroke-width='2.5' fill='none' transform='rotate(15)'%3E%3C/ellipse%3E%3C/g%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .section, .hero {
@@ -95,7 +100,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 50px 30px 80px 30px; /* Adăugat padding mai mare jos pentru a lăsa spațiu indicatorului */
+            padding: 50px 30px 90px 30px; 
             scroll-snap-align: start;
             scroll-snap-stop: always;
             position: relative;
@@ -135,17 +140,16 @@
             border-color: var(--primary);
         }
 
+        /* Frunze discrete colțuri */
         .botanical-art {
             position: absolute;
             width: 200px;
             height: auto;
-            opacity: 0.14;
+            opacity: 0.12;
             pointer-events: none;
             z-index: 1;
         }
         .art-top-left { top: -20px; left: -40px; transform: rotate(10deg); width: 220px; }
-        .art-mid-right { top: 135%; right: -50px; transform: rotate(-65deg); width: 180px; }
-        .art-mid-left { top: 268%; left: -60px; transform: rotate(15deg); width: 190px; }
         .art-bottom-right { bottom: -30px; right: -40px; transform: rotate(-20deg); width: 240px; }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -156,7 +160,7 @@
             height: 35px;
             border-color: var(--accent);
             border-style: solid;
-            opacity: 0.5;
+            opacity: 0.4;
         }
         .top-left { top: 30px; left: 30px; border-width: 1px 0 0 1px; }
         .top-right { top: 30px; right: 30px; border-width: 1px 1px 0 0; }
@@ -169,7 +173,7 @@
             font-weight: 400;
             letter-spacing: 1px;
             line-height: 1.2;
-            margin-bottom: 45px; /* Spațiu generos între titlu și nume */
+            margin-bottom: 45px; 
         }
 
         .hero-names {
@@ -207,10 +211,10 @@
             font-weight: 500;
         }
 
-        /* INDICATOR DE SCROLL REPOZIȚIONAT ȘI OPTIMIZAT */
+        /* INDICATOR DE SCROLL POZIȚIONAT CORECT CONFORM REZOLUȚIILOR */
         .scroll-indicator {
             position: absolute;
-            bottom: 45px; /* Ridicat semnificativ mai sus pentru a se vedea pe orice telefon */
+            bottom: 45px; 
             font-size: 0.65rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -245,7 +249,7 @@
             margin-bottom: 20px;
         }
 
-        /* PROGRAM TIMELINE MODERN ACCENTUAT */
+        /* PROGRAM TIMELINE MODERN */
         .modern-timeline {
             width: 100%;
             max-width: 360px;
@@ -402,7 +406,7 @@
             <circle cx="30" cy="22" r="1.5" fill="#c4a473"/>
         </svg>
 
-        <svg class="botanical-art art-mid-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="botanical-art art-bottom-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M90 10 Q 50 40 20 90" stroke="#2c3e27" stroke-width="0.7"/>
             <path d="M50 40 C 45 60 30 65 35 75 C 45 70 55 55 50 40 Z" fill="#c4a473" fill-opacity="0.12" stroke="#c4a473" stroke-width="0.3"/>
         </svg>
@@ -448,7 +452,7 @@
                     <h3 class="node-title">Marea Petrecere</h3>
                     <p class="node-desc">Cernica Events</p>
                     <p class="node-subdesc">Strada Ștrandului 52, Pantelimon</p>
-                    <a href="http://maps.google.com/?q=Cernica+Events+Pantelimon" target="_blank" class="btn">Direcții Locație</a>
+                    <a href="https://maps.google.com" target="_blank" class="btn">Direcții Locație</a>
                 </div>
             </div>
             
