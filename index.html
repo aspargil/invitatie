@@ -6,7 +6,6 @@
     <title>Invitație Nuntă - Mihai & Simona</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Am adăugat Alex Brush pentru accente extrem de caligrafice și cursive -->
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
     <style>
@@ -24,7 +23,6 @@
             --text-muted: #5b6356;
         }
 
-        /* Blocăm complet scroll-ul orizontal pe body și activăm snapping-ul */
         html, body {
             background-color: #121911;
             overflow-x: hidden;
@@ -32,15 +30,14 @@
             height: 100%;
         }
 
-        /* Containerul principal devine cel care controlează scroll-ul vertical și snapping-ul */
         .scroll-container {
             max-width: 480px;
             margin: 0 auto;
             background-color: var(--bg-light);
             height: 100vh;
             overflow-y: scroll;
-            overflow-x: hidden; /* Securitate dublă împotriva mișcării stânga-dreapta */
-            scroll-snap-type: y mandatory; /* Activează alinierea automată la scroll */
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
             box-shadow: 0 0 50px rgba(0,0,0,0.4);
             position: relative;
@@ -48,7 +45,6 @@
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 100 100' opacity='0.03'%3E%3Cpath d='M10 10 C 30 20, 40 40, 50 70 C 60 40, 70 20, 90 10' stroke='%232c3e27' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
         }
 
-        /* Fiecare secțiune ocupă fix un ecran complet de telefon */
         .section, .hero {
             height: 100vh;
             width: 100%;
@@ -57,7 +53,7 @@
             justify-content: center;
             align-items: center;
             padding: 40px 30px;
-            scroll-snap-align: start; /* Punctul în care se agață ecranul */
+            scroll-snap-align: start;
             scroll-snap-stop: always;
             position: relative;
             box-sizing: border-box;
@@ -65,7 +61,38 @@
             z-index: 2;
         }
 
-        /* Ilustrații Botanice */
+        /* Buton Audio plutitor, discret și elegant */
+        .audio-control {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(196, 164, 115, 0.4);
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .audio-control svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--primary);
+            transition: all 0.3s ease;
+        }
+        /* Animație de rotire când muzica rulează, ca un vinil */
+        .audio-playing {
+            animation: rotateVinyl 4s linear infinite;
+            border-color: var(--primary);
+        }
+
         .botanical-art {
             position: absolute;
             width: 200px;
@@ -89,7 +116,6 @@
             margin: 20px 0;
         }
 
-        /* Font extrem de caligrafic tip scris de mână pentru accente scrise mic */
         .handwritten-accent {
             font-family: 'Alex Brush', cursive;
             font-size: 2.2rem;
@@ -98,7 +124,6 @@
             margin-bottom: 10px;
         }
 
-        /* Margini decorative pentru copertă */
         .corner-bracket {
             position: absolute;
             width: 35px;
@@ -165,7 +190,6 @@
             margin-top: 4px;
         }
 
-        /* Modificat pentru un stil mult mai cursiv, caligrafic și aerisit */
         .story-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -176,7 +200,6 @@
             padding: 0 10px;
         }
 
-        /* Card Timeline */
         .card {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(8px);
@@ -268,14 +291,32 @@
             40% { transform: translateY(-6px); }
             60% { transform: translateY(-3px); }
         }
+
+        @keyframes rotateVinyl {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Containerul principal cu sistemul anti-alunecare lateral și auto-snap vertical -->
-    <div class="scroll-container">
+    <!-- ELEMENTUL AUDIO (Ascuns vizual, conține o melodie festivă italiană de fundal) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Browserul tău nu suportă elementul audio.
+    </audio>
+
+    <!-- Butonul plutitor de control muzică -->
+    <div class="audio-control" id="audio-btn" onclick="toggleAudio()">
+        <!-- Iconiță de Notă Muzicală / Stare Oprită implicit -->
+        <svg id="audio-icon" viewBox="0 0 24 24">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+        </svg>
+    </div>
+
+    <div class="scroll-container" id="main-container">
         
-        <!-- ELEMENTE DE DESIGN DE C FUNDAL -->
+        <!-- BIJUTERII DE DESIGN BACKGROUND -->
         <svg class="botanical-art art-top-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 10 Q 50 30 80 80" stroke="#2c3e27" stroke-width="0.8" stroke-linecap="round"/>
             <path d="M30 22 C 25 35 15 40 20 50 C 30 45 35 30 30 22 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
@@ -313,7 +354,7 @@
             <div class="scroll-indicator">Glisează în jos<br>↓</div>
         </div>
 
-        <!-- ECRAN 2: TEXT PERSONALIZAT (CALIGRAFIC) -->
+        <!-- ECRAN 2: TEXT PERSONALIZAT -->
         <div class="section">
             <div class="handwritten-accent">Povestea noastră</div>
             <h2 class="section-title">Vă invităm la nunta noastră<span class="ornament">✦</span></h2>
@@ -365,6 +406,48 @@
         </div>
 
     </div>
+
+    <!-- SCRIPT LOGICĂ AUDIO PENTRU MOBIL -->
+    <script>
+        const music = document.getElementById('bg-music');
+        const audioBtn = document.getElementById('audio-btn');
+        const container = document.getElementById('main-container');
+        let hasInteracted = false;
+
+        function toggleAudio() {
+            if (music.paused) {
+                playAudio();
+            } else {
+                pauseAudio();
+            }
+        }
+
+        function playAudio() {
+            music.play().then(() => {
+                audioBtn.classList.add('audio-playing');
+            }).catch(err => console.log("Așteaptă interacțiunea utilizatorului pentru audio."));
+        }
+
+        function pauseAudio() {
+            music.pause();
+            audioBtn.classList.remove('audio-playing');
+        }
+
+        // Pornește automat muzica la prima atingere/scroll pe pagină
+        container.addEventListener('scroll', () => {
+            if (!hasInteracted) {
+                playAudio();
+                hasInteracted = true;
+            }
+        });
+
+        document.body.addEventListener('touchstart', () => {
+            if (!hasInteracted) {
+                playAudio();
+                hasInteracted = true;
+            }
+        });
+    </script>
 
 </body>
 </html>
