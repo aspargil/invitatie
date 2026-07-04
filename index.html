@@ -73,7 +73,7 @@
             background: transparent;
         }
 
-        /* FUNDAL NOU: Curat, luminos, doar cu Verighete și Cunună Botanică */
+        /* NOU FUNDAL: SILUETĂ PLINĂ ȘI CORECTĂ PENTRU MIRI + VERIGHETE */
         .scroll-container {
             max-width: 480px;
             margin: 0 auto;
@@ -86,8 +86,8 @@
             box-shadow: 0 0 50px rgba(0,0,0,0.4);
             position: relative;
             
-            /* Grafică nouă în cod: Cunună fină de flori/frunze și Verighete din aur jos */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%25' height='100%25'%3E%3Ccircle cx='200' cy='200' r='140' stroke='%232c3e27' stroke-width='0.5' fill='none' stroke-dasharray='4 8' opacity='0.15'/%3E%3Cpath d='M110,110 Q140,80 200,90 T290,110' stroke='%232c3e27' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cpath d='M110,290 Q140,320 200,310 T290,290' stroke='%232c3e27' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cg transform='translate(200, 350)' opacity='0.4'%3E%3Cellipse cx='-8' cy='0' rx='14' ry='9' stroke='%23c4a473' stroke-width='2' fill='none' transform='rotate(-15)'/%3E%3Cellipse cx='8' cy='2' rx='14' ry='9' stroke='%23b39262' stroke-width='2' fill='none' transform='rotate(15)'/%3E%3C/g%3E%3C/svg%3E");
+            /* Grafică nouă: Siluetă stilizată cu umbră solidă elegantă pentru miri și verighete */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%25' height='100%25'%3E%3Cpath d='M 20 60 Q 100 20, 200 50 T 380 30' stroke='%23e8decf' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3Cg transform='translate(130, 90)' opacity='0.05'%3E%3C!-- Silueta Mire --%3E%3Cpath d='M25,180 L25,130 Q25,110 38,100 C43,85 40,70 45,55 C40,45 42,35 50,35 C58,35 60,45 55,55 C60,70 57,85 62,100 Q75,110 75,130 L75,180 Z' fill='%232c3e27'/%3E%3C!-- Silueta Mireasa --%3E%3Cpath d='M65,180 Q80,150 72,120 Q83,105 78,80 C85,70 80,55 85,45 C92,40 95,50 90,60 C95,75 90,90 95,115 L115,180 Z' fill='%232c3e27'/%3E%3C!-- Voal fluid --%3E%3Cpath d='M85,45 Q120,65 110,140 Q100,175 75,180 Z' fill='%232c3e27' opacity='0.4'/%3E%3C/g%3E%3Cg transform='translate(200, 345)' opacity='0.15'%3E%3Cellipse cx='-9' cy='0' rx='16' ry='10' stroke='%23c4a473' stroke-width='2.5' fill='none' transform='rotate(-15)'/%3E%3Cellipse cx='9' cy='3' rx='16' ry='10' stroke='%23b39262' stroke-width='2.5' fill='none' transform='rotate(15)'/%3E%3C/g%3E%3C/svg%3E");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -109,7 +109,7 @@
             z-index: 2;
         }
 
-        /* Buton Audio */
+        /* Buton Audio plutitor */
         .audio-control {
             position: fixed;
             top: 25px;
@@ -138,6 +138,18 @@
             animation: rotateVinyl 4s linear infinite;
             border-color: var(--primary);
         }
+
+        /* Elemente botanice colțuri */
+        .botanical-art {
+            position: absolute;
+            width: 200px;
+            height: auto;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .art-top-left { top: -20px; left: -40px; transform: rotate(10deg); width: 220px; }
+        .art-bottom-right { bottom: -30px; right: -40px; transform: rotate(-20deg); width: 240px; }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
@@ -360,6 +372,7 @@
 </head>
 <body>
 
+    <!-- ECRAN INIȚIAL -->
     <div id="splash-screen" onclick="dismissSplash()">
         <button class="splash-trigger">
             Sunteți invitați la...
@@ -368,6 +381,7 @@
         <div class="splash-btn">Deschide Invitația</div>
     </div>
 
+    <!-- ELEMENTUL AUDIO -->
     <audio id="bg-music" loop preload="auto">
         <source src="ordinary.mp3" type="audio/mpeg">
         <source src="ordinary" type="audio/mpeg">
@@ -381,6 +395,19 @@
 
     <div class="scroll-container" id="main-container">
         
+        <!-- ELEMENTE GRAFICE COLȚURI -->
+        <svg class="botanical-art art-top-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 10 Q 50 30 80 80" stroke="#2c3e27" stroke-width="0.8" stroke-linecap="round"/>
+            <path d="M30 22 C 25 35 15 40 20 50 C 30 45 35 30 30 22 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
+            <circle cx="30" cy="22" r="1.5" fill="#c4a473"/>
+        </svg>
+
+        <svg class="botanical-art art-bottom-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M90 10 Q 50 40 20 90" stroke="#2c3e27" stroke-width="0.7"/>
+            <path d="M50 40 C 45 60 30 65 35 75 C 45 70 55 55 50 40 Z" fill="#c4a473" fill-opacity="0.12" stroke="#c4a473" stroke-width="0.3"/>
+        </svg>
+
+        <!-- ECRAN 1: COPERTĂ -->
         <div class="hero">
             <div class="corner-bracket top-left"></div>
             <div class="corner-bracket top-right"></div>
@@ -398,4 +425,105 @@
             <div class="scroll-indicator">Vezi detalii<br>↓</div>
         </div>
 
-        <div class="
+        <!-- ECRAN 2: POVESTEA NOASTRĂ -->
+        <div class="section">
+            <div class="corner-bracket top-left"></div>
+            <div class="corner-bracket top-right"></div>
+            <div class="corner-bracket bottom-left"></div>
+            <div class="corner-bracket bottom-right"></div>
+
+            <h2 class="section-title">Povestea Noastră<span class="ornament">✦</span></h2>
+            <p class="story-text">
+                „Pentru că dragostea nu caută să fie perfectă, ci doar adevărată. Cu inimile pline de bucurie și emoție, vă invităm să ne fiți alături în ziua în care vom porni în cea mai frumoasă călătorie a vieții noastre ca soț și soție.”
+            </p>
+            <div class="scroll-indicator">Programul zilei<br>↓</div>
+        </div>
+
+        <!-- ECRAN 3: PROGRAMUL ZILEI -->
+        <div class="section">
+            <div class="corner-bracket top-left"></div>
+            <div class="corner-bracket top-right"></div>
+            <div class="corner-bracket bottom-left"></div>
+            <div class="corner-bracket bottom-right"></div>
+
+            <h2 class="section-title" style="margin-bottom: 40px;">Programul Zilei<span class="ornament">✦</span></h2>
+            
+            <div class="modern-timeline">
+                <div class="timeline-node">
+                    <span class="node-time">15:00</span>
+                    <h3 class="node-title">Ceremonia Religioasă</h3>
+                    <p class="node-desc">Sfânta Taină a Cununiei</p>
+                    <p class="node-subdesc">Locația urmează a fi stabilită</p>
+                </div>
+                
+                <div class="timeline-node">
+                    <span class="node-time">16:30</span>
+                    <h3 class="node-title">Marea Petrecere</h3>
+                    <p class="node-desc">Cernica Events</p>
+                    <p class="node-subdesc">Strada Ștrandului 52, Pantelimon</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn">Direcții Locație</a>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">Confirmare<br>↓</div>
+        </div>
+
+        <!-- ECRAN 4: RSVP -->
+        <div class="section">
+            <div class="corner-bracket top-left"></div>
+            <div class="corner-bracket top-right"></div>
+            <div class="corner-bracket bottom-left"></div>
+            <div class="corner-bracket bottom-right"></div>
+
+            <h2 class="section-title">Confirmare<span class="ornament">✦</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem; padding: 0 15px; font-family: 'Montserrat', sans-serif; line-height: 1.6;">
+                Pentru a ne fi alături în această zi unică, vă rugăm să ne confirmați prezența dumneavoastră accesând butonul de mai jos.
+            </p>
+            
+            <a href="https://wa.me/40744446250?text=Buna!%20Confirmam%20cu%20mare%20drag%20prezenta%20la%20nunta%20voastra!" target="_blank" class="btn btn-filled">Confirmă pe WhatsApp</a>
+            
+            <p style="margin-top: 50px; font-family: 'Pinyon Script', cursive; font-size: 3.5rem; color: var(--accent);">
+                Vă așteptăm cu drag!
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const audioBtn = document.getElementById('audio-btn');
+        const splash = document.getElementById('splash-screen');
+
+        function dismissSplash() {
+            music.load();
+            splash.style.opacity = '0';
+            splash.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                splash.style.display = 'none';
+                audioBtn.style.display = 'flex';
+            }, 800);
+            playAudio();
+        }
+
+        function toggleAudio() {
+            if (music.paused) { playAudio(); } else { pauseAudio(); }
+        }
+
+        function playAudio() {
+            const playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    audioBtn.classList.add('audio-playing');
+                }).catch(err => {
+                    setTimeout(() => { music.play(); audioBtn.classList.add('audio-playing'); }, 300);
+                });
+            }
+        }
+
+        function pauseAudio() {
+            music.pause();
+            audioBtn.classList.remove('audio-playing');
+        }
+    </script>
+</body>
+</html>
