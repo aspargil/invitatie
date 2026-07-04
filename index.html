@@ -16,7 +16,7 @@
         }
 
         :root {
-            --primary: #2c3e27;      /* Verde forestier */
+            --primary: #2c3e27;      /* Verde salvie închis */
             --accent: #c4a473;       /* Auriu Luxury */
             --bg-light: #faf7f2;
             --text-dark: #2d332a;
@@ -25,49 +25,49 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #1a2418;
+            background-color: #121911; /* Fundalul exterior elegant */
             color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* Containerul principal cu textura de filigran fin */
         .scroll-container {
             max-width: 480px;
             margin: 0 auto;
             background-color: var(--bg-light);
             min-height: 100vh;
-            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+            box-shadow: 0 0 50px rgba(0,0,0,0.4);
             position: relative;
+            /* Linii fine de fundal ce imită structura frunzelor */
             background-image: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100' opacity='0.04'%3E%3Cpath d='M30,20 C40,40 20,60 50,80 C60,60 80,40 70,20 C60,30 40,30 30,20 Z' fill='%232c3e27'/%3E%3Ccircle cx='50' cy='30' r='3' fill='%23c4a473'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 100 100' opacity='0.03'%3E%3Cpath d='M10 10 C 30 20, 40 40, 50 70 C 60 40, 70 20, 90 10' stroke='%232c3e27' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
         }
 
-        /* Frunze decorative vectoriale pe fundal */
-        .bg-leaf {
+        /* Ilustrații Botanice Artistice Fine (SVG Overlays) */
+        .botanical-art {
             position: absolute;
-            width: 140px;
-            height: 140px;
-            opacity: 0.12;
+            width: 200px;
+            height: auto;
+            opacity: 0.16;
             pointer-events: none;
             z-index: 1;
         }
-        .leaf-1 { top: 5%; left: -40px; transform: rotate(45deg); }
-        .leaf-2 { top: 30%; right: -50px; transform: rotate(-85deg); }
-        .leaf-3 { top: 60%; left: -30px; transform: rotate(15deg); }
-        .leaf-4 { bottom: 5%; right: -40px; transform: rotate(120deg); }
+        .art-top-left { top: -20px; left: -40px; transform: rotate(10deg); width: 220px; }
+        .art-mid-right { top: 32%; right: -50px; transform: rotate(-65deg); width: 180px; }
+        .art-mid-left { top: 62%; left: -60px; transform: rotate(15deg); width: 190px; }
+        .art-bottom-right { bottom: -30px; right: -40px; transform: rotate(-20deg); width: 240px; }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         
         .script-font {
             font-family: 'Pinyon Script', cursive;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--accent);
-            line-height: 0.6;
-            margin: 15px 0;
+            line-height: 0.5;
+            margin: 20px 0;
         }
 
-        /* Coperta cu Rama Dubla */
+        /* Copertă cu colțare minimaliste elegante */
         .hero {
             height: 100vh;
             display: flex;
@@ -78,57 +78,50 @@
             position: relative;
             text-align: center;
             z-index: 2;
-            background: radial-gradient(circle at center, rgba(250,247,242,0.4) 0%, rgba(242,236,226,0.8) 100%);
+            background: radial-gradient(circle at center, rgba(250,247,242,0.3) 0%, rgba(243,237,227,0.7) 100%);
         }
 
-        .frame-outer {
+        .corner-bracket {
             position: absolute;
-            top: 25px; bottom: 25px; left: 25px; right: 25px;
-            border: 1px solid rgba(196, 164, 115, 0.4);
-            pointer-events: none;
+            width: 35px;
+            height: 35px;
+            border-color: var(--accent);
+            border-style: solid;
+            opacity: 0.5;
         }
-        .frame-inner {
-            position: absolute;
-            top: 32px; bottom: 32px; left: 32px; right: 32px;
-            border: 1px dashed rgba(44, 62, 39, 0.2);
-            pointer-events: none;
-        }
+        .top-left { top: 30px; left: 30px; border-width: 1px 0 0 1px; }
+        .top-right { top: 30px; right: 30px; border-width: 1px 1px 0 0; }
+        .bottom-left { bottom: 30px; left: 30px; border-width: 0 0 1px 1px; }
+        .bottom-right { bottom: 30px; right: 30px; border-width: 0 1px 1px 0; }
 
         .hero-subtitle {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 6px;
+            letter-spacing: 7px;
             color: var(--primary);
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: var(--primary);
             font-weight: 400;
             letter-spacing: 1px;
+            line-height: 1.1;
         }
 
         .hero-date {
             font-size: 0.95rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            margin-top: 30px;
+            margin-top: 35px;
             color: var(--text-dark);
             padding: 8px 0;
-            position: relative;
-            width: 80%;
+            width: 60%;
+            border-top: 1px solid rgba(196, 164, 115, 0.4);
+            border-bottom: 1px solid rgba(196, 164, 115, 0.4);
         }
-        .hero-date::before, .hero-date::after {
-            content: "";
-            position: absolute;
-            width: 30px; height: 1px;
-            background-color: var(--accent);
-            left: 50%; transform: translateX(-50%);
-        }
-        .hero-date::before { top: 0; }
-        .hero-date::after { bottom: 0; }
 
         .scroll-indicator {
             position: absolute;
@@ -141,23 +134,24 @@
         }
 
         .section {
-            padding: 90px 35px;
+            padding: 95px 35px;
             text-align: center;
             position: relative;
             z-index: 2;
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.65rem;
             color: var(--primary);
             margin-bottom: 35px;
             font-weight: 400;
+            letter-spacing: 0.5px;
         }
         .ornament {
             display: block;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--accent);
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
         .story-text {
@@ -168,70 +162,76 @@
             line-height: 2;
         }
 
-        /* Card cu efect de sticla (Frosted Glass) */
+        /* Card cu bordură fină interioară */
         .card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-top: 3px solid var(--accent);
-            border-radius: 16px;
-            padding: 40px 25px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 45px 25px;
             margin-top: 15px;
-            box-shadow: 0 15px 35px rgba(44, 62, 39, 0.05);
+            box-shadow: 0 15px 40px rgba(44, 62, 39, 0.04);
+            position: relative;
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 10px; bottom: 10px; left: 10px; right: 10px;
+            border: 1px solid rgba(196, 164, 115, 0.15);
+            border-radius: 12px;
+            pointer-events: none;
         }
 
         .card h3 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: var(--primary);
             margin-bottom: 15px;
-            letter-spacing: 0.5px;
         }
 
         .card p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .btn {
             display: inline-block;
             margin-top: 25px;
-            padding: 14px 38px;
-            border: 1px solid var(--primary);
+            padding: 14px 40px;
+            border: 1px solid var(--accent);
             color: var(--primary);
             text-decoration: none;
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             font-weight: 600;
-            border-radius: 4px;
+            border-radius: 0;
             transition: all 0.4s ease;
             background: transparent;
         }
 
         .btn:hover {
+            border-color: var(--primary);
             background-color: var(--primary);
             color: #ffffff;
-            box-shadow: 0 5px 15px rgba(44, 62, 39, 0.2);
         }
 
         .btn-filled {
             background-color: var(--primary);
             color: #ffffff;
             border: none;
-            box-shadow: 0 6px 25px rgba(44, 62, 39, 0.2);
+            box-shadow: 0 8px 25px rgba(44, 62, 39, 0.2);
         }
-
         .btn-filled:hover {
             background-color: #1a2717;
-            box-shadow: 0 8px 30px rgba(44, 62, 39, 0.3);
+            box-shadow: 0 10px 30px rgba(44, 62, 39, 0.35);
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-8px); }
-            60% { transform: translateY(-4px); }
+            40% { transform: translateY(-6px); }
+            60% { transform: translateY(-3px); }
         }
     </style>
 </head>
@@ -239,16 +239,47 @@
 
     <div class="scroll-container">
         
-        <!-- Elementele SVG pentru frunze de fundal -->
-        <svg class="bg-leaf leaf-1" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
-        <svg class="bg-leaf leaf-2" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
-        <svg class="bg-leaf leaf-3" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
-        <svg class="bg-leaf leaf-4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
+        <!-- ELEMENTE GRAFICE BOTANICE SUBȚIRI ȘI ARTISTICE -->
+        <!-- Stânga Sus -->
+        <svg class="botanical-art art-top-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 10 Q 50 30 80 80" stroke="#2c3e27" stroke-width="0.8" stroke-linecap="round"/>
+            <path d="M30 22 C 25 35 15 40 20 50 C 30 45 35 30 30 22 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
+            <path d="M45 32 C 40 50 55 55 60 65 C 65 50 55 40 45 32 Z" fill="#2c3e27" fill-opacity="0.08" stroke="#2c3e27" stroke-width="0.3"/>
+            <path d="M15 12 C 5 25 8 35 0 40 C 10 35 20 20 15 12 Z" fill="#c4a473" fill-opacity="0.15" stroke="#c4a473" stroke-width="0.3"/>
+            <circle cx="30" cy="22" r="1.5" fill="#c4a473"/>
+            <circle cx="45" cy="32" r="1.5" fill="#c4a473"/>
+        </svg>
 
-        <!-- ECRAN 1: COPERTA CU CADRU LUXURY -->
+        <!-- Dreapta Mijloc -->
+        <svg class="botanical-art art-mid-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M90 10 Q 50 40 20 90" stroke="#2c3e27" stroke-width="0.7"/>
+            <path d="M70 25 C 75 40 85 45 80 55 C 70 50 65 35 70 25 Z" fill="#2c3e27" fill-opacity="0.1" stroke="#2c3e27" stroke-width="0.3"/>
+            <path d="M50 40 C 45 60 30 65 35 75 C 45 70 55 55 50 40 Z" fill="#c4a473" fill-opacity="0.12" stroke="#c4a473" stroke-width="0.3"/>
+            <circle cx="70" cy="25" r="1.5" fill="#c4a473"/>
+        </svg>
+
+        <!-- Stânga Mijloc -->
+        <svg class="botanical-art art-mid-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20 Q 40 50 70 90" stroke="#2c3e27" stroke-width="0.7"/>
+            <path d="M25 35 C 20 50 10 55 15 65 C 25 60 30 45 25 35 Z" fill="#2c3e27" fill-opacity="0.1" stroke="#2c3e27" stroke-width="0.3"/>
+            <circle cx="25" cy="35" r="1.2" fill="#c4a473"/>
+        </svg>
+
+        <!-- Dreapta Jos -->
+        <svg class="botanical-art art-bottom-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M90 90 Q 50 60 10 10" stroke="#2c3e27" stroke-width="0.8"/>
+            <path d="M70 75 C 60 60 55 50 65 40 C 75 50 80 65 70 75 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
+            <path d="M50 55 C 35 45 40 30 30 25 C 40 35 45 50 50 55 Z" fill="#c4a473" fill-opacity="0.15" stroke="#c4a473" stroke-width="0.3"/>
+            <circle cx="70" cy="75" r="1.5" fill="#c4a473"/>
+            <circle cx="50" cy="55" r="1.5" fill="#2c3e27"/>
+        </svg>
+
+        <!-- ECRAN 1: COPERTĂ -->
         <div class="hero">
-            <div class="frame-outer"></div>
-            <div class="frame-inner"></div>
+            <div class="corner-bracket top-left"></div>
+            <div class="corner-bracket top-right"></div>
+            <div class="corner-bracket bottom-left"></div>
+            <div class="corner-bracket bottom-right"></div>
             
             <div class="hero-subtitle">Save the Date</div>
             <h1>Mihai</h1>
@@ -291,7 +322,7 @@
             
             <a href="https://wa.me/?text=Buna!%20Confirmam%20cu%20mare%20drag%20prezenta%20la%20nunta%20voastra!%20-%20Mihai%20si%20Simona" target="_blank" class="btn btn-filled">Confirmă pe WhatsApp</a>
             
-            <p style="margin-top: 65px; font-family: 'Pinyon Script', cursive; font-size: 3rem; color: var(--accent);">
+            <p style="margin-top: 65px; font-family: 'Pinyon Script', cursive; font-size: 3.2rem; color: var(--accent);">
                 Vă așteptăm cu drag!
             </p>
         </div>
