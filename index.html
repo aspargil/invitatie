@@ -20,7 +20,7 @@
             --accent: #c4a473;       
             --bg-light: #faf7f2;
             --text-dark: #2d332a;
-            --text-muted: #5b6356;
+            --text-muted: #6b7366;
         }
 
         html, body {
@@ -95,7 +95,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 30px;
+            padding: 50px 30px;
             scroll-snap-align: start;
             scroll-snap-stop: always;
             position: relative;
@@ -149,22 +149,6 @@
         .art-bottom-right { bottom: -30px; right: -40px; transform: rotate(-20deg); width: 240px; }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        .script-font {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 3.8rem;
-            color: var(--accent);
-            line-height: 0.5;
-            margin: 20px 0;
-        }
-
-        .handwritten-accent {
-            font-family: 'Alex Brush', cursive;
-            font-size: 2.2rem;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
 
         .corner-bracket {
             position: absolute;
@@ -185,19 +169,18 @@
             font-weight: 400;
             letter-spacing: 1px;
             line-height: 1.2;
+            margin-bottom: 45px; /* Mărit substanțial distanțarea conform cerinței */
         }
 
         .hero-names {
             font-size: 2.2rem;
             color: var(--text-dark);
             font-weight: 400;
-            margin-top: 15px;
             letter-spacing: 0.5px;
         }
 
-        /* Container grupat elegant jos pentru detalii dată */
         .hero-date-container {
-            margin-top: 45px;
+            margin-top: 55px;
             width: 65%;
             display: flex;
             flex-direction: column;
@@ -231,11 +214,12 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-muted);
+            font-family: 'Montserrat', sans-serif;
             animation: bounce 2.5s infinite;
         }
 
         .section-title {
-            font-size: 1.65rem;
+            font-size: 1.9rem;
             color: var(--primary);
             margin-bottom: 25px;
             font-weight: 400;
@@ -245,7 +229,7 @@
             display: block;
             font-size: 1.1rem;
             color: var(--accent);
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
         .story-text {
@@ -255,73 +239,99 @@
             color: var(--text-dark);
             line-height: 2.2;
             font-weight: 400;
-            padding: 0 10px;
+            padding: 0 15px;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 20px;
-            padding: 35px 20px;
+        /* PROGRAM TIMELINE MODERN */
+        .modern-timeline {
             width: 100%;
-            box-shadow: 0 15px 40px rgba(44, 62, 39, 0.04);
+            max-width: 360px;
+            margin: 20px auto 0 auto;
             position: relative;
-        }
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 10px; bottom: 10px; left: 10px; right: 10px;
-            border: 1px solid rgba(196, 164, 115, 0.15);
-            border-radius: 12px;
-            pointer-events: none;
+            padding-left: 35px;
+            text-align: left;
         }
 
-        .timeline-item {
-            margin-bottom: 20px;
-            position: relative;
+        /* Linia verticală din spate */
+        .modern-timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--accent) 15%, var(--accent) 85%, transparent);
+            opacity: 0.4;
         }
-        .timeline-item:last-child {
+
+        .timeline-node {
+            position: relative;
+            margin-bottom: 45px;
+        }
+        .timeline-node:last-child {
             margin-bottom: 0;
         }
-        
-        .time-badge {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--accent);
-            font-weight: 600;
-            display: block;
-            margin-bottom: 3px;
+
+        /* Punctul pe axă */
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 8px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            border: 2px solid var(--accent);
+            z-index: 2;
+            transition: all 0.3s ease;
         }
 
-        .timeline-item h4 {
-            font-size: 1rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
+        .node-time {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+            display: block;
             margin-bottom: 4px;
         }
 
-        .timeline-item p {
+        .node-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .node-desc {
             font-size: 0.85rem;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .node-subdesc {
+            font-size: 0.75rem;
+            font-style: italic;
             color: var(--text-muted);
+            margin-top: 3px;
         }
 
         .btn {
             display: inline-block;
             margin-top: 12px;
-            padding: 8px 25px;
+            padding: 7px 20px;
             border: 1px solid var(--accent);
             color: var(--primary);
             text-decoration: none;
             font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             font-weight: 600;
             transition: all 0.4s ease;
             background: transparent;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn:hover {
@@ -338,6 +348,7 @@
             font-size: 0.75rem;
             letter-spacing: 2.5px;
             box-shadow: 0 8px 25px rgba(44, 62, 39, 0.2);
+            font-family: 'Montserrat', sans-serif;
         }
         .btn-filled:hover {
             background-color: #1a2717;
@@ -400,7 +411,7 @@
             <path d="M50 40 C 45 60 30 65 35 75 C 45 70 55 55 50 40 Z" fill="#c4a473" fill-opacity="0.12" stroke="#c4a473" stroke-width="0.3"/>
         </svg>
 
-        <!-- ECRAN 1: COPERTĂ -->
+        <!-- ECRAN 1: COPERTĂ DISTANȚATĂ -->
         <div class="hero">
             <div class="corner-bracket top-left"></div>
             <div class="corner-bracket top-right"></div>
@@ -410,74 +421,72 @@
             <h1>Nunta Noastră</h1>
             <div class="hero-names">Mihai & Simona</div>
             
-            <!-- Zona de jos restructurată elegant -->
             <div class="hero-date-container">
                 <div class="hero-subtitle-bottom">Save the Date</div>
                 <div class="hero-date">Septembrie 2027</div>
             </div>
             
-            <div class="scroll-indicator">Glisează în jos<br>↓</div>
+            <div class="scroll-indicator">Vezi detalii<br>↓</div>
         </div>
 
-        <!-- ECRAN 2: POVESTEA NOASTRĂ (Text curățat de repetiții) -->
+        <!-- ECRAN 2: POVESTEA NOASTRĂ (Titlu unic și curat) -->
         <div class="section">
-            <div class="handwritten-accent">Călătoria noastră</div>
             <h2 class="section-title">Povestea Noastră<span class="ornament">✦</span></h2>
             <p class="story-text">
                 „Pentru că dragostea nu caută să fie perfectă, ci doar adevărată. Cu inimile pline de bucurie și emoție, vă invităm să ne fiți alături în ziua în care vom porni în cea mai frumoasă călătorie a vieții noastre ca soț și soție.”
             </p>
+            <div class="scroll-indicator">Programul zilei<br>↓</div>
         </div>
 
-        <!-- ECRAN 3: PROGRAMUL ZILEI -->
+        <!-- ECRAN 3: PROGRAMUL ZILEI MODERNIZAT TIMELINE -->
         <div class="section">
-            <div class="handwritten-accent">Momente speciale</div>
-            <h2 class="section-title">Programul Zilei <span class="ornament">✦</span></h2>
+            <h2 class="section-title" style="margin-bottom: 40px;">Programul Zilei<span class="ornament">✦</span></h2>
             
-            <div class="card">
-                <div class="timeline-item">
-                    <span class="time-badge">15:00</span>
-                    <h4>Ceremonia Religioasă</h4>
-                    <p>Sfânta Taină a Cununiei</p>
-                    <p style="font-size: 0.75rem; font-style: italic; color: var(--text-muted); margin-top: 2px;">Locația urmează a fi stabilită</p>
+            <div class="modern-timeline">
+                <!-- Nodul 1 -->
+                <div class="timeline-node">
+                    <span class="node-time">15:00</span>
+                    <h3 class="node-title">Ceremonia Religioasă</h3>
+                    <p class="node-desc">Sfânta Taină a Cununiei</p>
+                    <p class="node-subdesc">Locația urmează a fi stabilită</p>
                 </div>
                 
-                <hr style="border: 0; border-top: 1px dashed rgba(196, 164, 115, 0.3); margin: 15px 0;">
-
-                <div class="timeline-item">
-                    <span class="time-badge">16:30</span>
-                    <h4>Marea Petrecere</h4>
-                    <p>Cernica Events</p>
-                    <p style="font-size: 0.75rem; font-style: italic; color: var(--text-muted); margin-top: 2px;">Strada Ștrandului 52, Pantelimon</p>
+                <!-- Nodul 2 -->
+                <div class="timeline-node">
+                    <span class="node-time">16:30</span>
+                    <h3 class="node-title">Marea Petrecere</h3>
+                    <p class="node-desc">Cernica Events</p>
+                    <p class="node-subdesc">Strada Ștrandului 52, Pantelimon</p>
                     <a href="https://maps.google.com/?q=Cernica+Events+Strada+Strandului+52+Pantelimon" target="_blank" class="btn">Direcții Locație</a>
                 </div>
             </div>
+            
+            <div class="scroll-indicator">Confirmare<br>↓</div>
         </div>
 
         <!-- ECRAN 4: RSVP -->
         <div class="section">
-            <div class="handwritten-accent">R.S.V.P.</div>
-            <h2 class="section-title">Confirmare <span class="ornament">✦</span></h2>
-            <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.9rem; padding: 0 10px;">
+            <h2 class="section-title">Confirmare<span class="ornament">✦</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem; padding: 0 15px; font-family: 'Montserrat', sans-serif; line-height: 1.6;">
                 Pentru a ne fi alături în această zi unică, vă rugăm să ne confirmați prezența dumneavoastră accesând butonul de mai jos.
             </p>
             
             <a href="https://wa.me/40744446250?text=Buna!%20Confirmam%20cu%20mare%20drag%20prezenta%20la%20nunta%20voastra!" target="_blank" class="btn btn-filled">Confirmă pe WhatsApp</a>
             
-            <p style="margin-top: 40px; font-family: 'Pinyon Script', cursive; font-size: 3.2rem; color: var(--accent);">
+            <p style="margin-top: 50px; font-family: 'Pinyon Script', cursive; font-size: 3.5rem; color: var(--accent);">
                 Vă așteptăm cu drag!
             </p>
         </div>
 
     </div>
 
-    <!-- LOGICĂ ÎMBUNĂTĂȚITĂ PENTRU REDARE AUDIO SIGURĂ -->
+    <!-- LOGICĂ REDARE AUDIO -->
     <script>
         const music = document.getElementById('bg-music');
         const audioBtn = document.getElementById('audio-btn');
         const splash = document.getElementById('splash-screen');
 
         function dismissSplash() {
-            // Asigură reîncărcarea corectă a resursei înainte de redare
             music.load();
             
             splash.style.opacity = '0';
@@ -500,15 +509,12 @@
         }
 
         function playAudio() {
-            // Soluție specială de fallback pentru browserele mobile încăpățânate
             const playPromise = music.play();
-            
             if (playPromise !== undefined) {
                 playPromise.then(() => {
                     audioBtn.classList.add('audio-playing');
                 }).catch(err => {
-                    console.log("Redarea audio automată a eșuat. Se încearcă din nou la următorul gest.", err);
-                    // Încearcă din nou la un mic interval
+                    console.log("Așteptare interacțiune suplimentară.", err);
                     setTimeout(() => { music.play(); audioBtn.classList.add('audio-playing'); }, 300);
                 });
             }
