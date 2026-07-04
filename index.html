@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitație Nuntă - Mihai & Simona</title>
-    <!-- Fonturi Premium din Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Resetare și Configurare Stiluri Generale */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -18,37 +16,58 @@
         }
 
         :root {
-            --bg-color: #fcfbfa;
-            --primary-color: #2c3e27; /* Verde Forestier Elegant */
-            --accent-color: #bfa37a;  /* Auriu / Champagne fin */
-            --text-dark: #222222;
-            --text-muted: #555555;
-            --card-bg: #ffffff;
+            --primary: #2c3e27;      /* Verde forestier */
+            --accent: #c4a473;       /* Auriu Luxury */
+            --bg-light: #faf7f2;
+            --text-dark: #2d332a;
+            --text-muted: #5b6356;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #e5e0d8; /* Fundal exterior paginii */
+            background-color: #1a2418;
             color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* Containerul principal - simulează o aplicație mobilă modernă */
+        /* Containerul principal cu textura de filigran fin */
         .scroll-container {
             max-width: 480px;
             margin: 0 auto;
-            background-color: var(--card-bg);
+            background-color: var(--bg-light);
             min-height: 100vh;
-            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+            position: relative;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100' opacity='0.04'%3E%3Cpath d='M30,20 C40,40 20,60 50,80 C60,60 80,40 70,20 C60,30 40,30 30,20 Z' fill='%232c3e27'/%3E%3Ccircle cx='50' cy='30' r='3' fill='%23c4a473'/%3E%3C/svg%3E");
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
+        /* Frunze decorative vectoriale pe fundal */
+        .bg-leaf {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .leaf-1 { top: 5%; left: -40px; transform: rotate(45deg); }
+        .leaf-2 { top: 30%; right: -50px; transform: rotate(-85deg); }
+        .leaf-3 { top: 60%; left: -30px; transform: rotate(15deg); }
+        .leaf-4 { bottom: 5%; right: -40px; transform: rotate(120deg); }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .script-font {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.5rem;
+            color: var(--accent);
+            line-height: 0.6;
+            margin: 15px 0;
         }
 
-        /* Ecranul de început (Coperta) */
+        /* Coperta cu Rama Dubla */
         .hero {
             height: 100vh;
             display: flex;
@@ -56,179 +75,163 @@
             justify-content: center;
             align-items: center;
             padding: 40px;
-            background: linear-gradient(180deg, rgba(243,239,230,0.7) 0%, rgba(252,251,250,1) 100%);
             position: relative;
             text-align: center;
+            z-index: 2;
+            background: radial-gradient(circle at center, rgba(250,247,242,0.4) 0%, rgba(242,236,226,0.8) 100%);
         }
 
-        /* Chenarul auriu interior elegant */
-        .hero::before {
-            content: "";
+        .frame-outer {
             position: absolute;
-            top: 20px;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            border: 1px solid rgba(191, 163, 122, 0.35);
+            top: 25px; bottom: 25px; left: 25px; right: 25px;
+            border: 1px solid rgba(196, 164, 115, 0.4);
+            pointer-events: none;
+        }
+        .frame-inner {
+            position: absolute;
+            top: 32px; bottom: 32px; left: 32px; right: 32px;
+            border: 1px dashed rgba(44, 62, 39, 0.2);
             pointer-events: none;
         }
 
         .hero-subtitle {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            color: var(--accent-color);
-            margin-bottom: 25px;
+            letter-spacing: 6px;
+            color: var(--primary);
             font-weight: 600;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
             font-size: 2.8rem;
-            color: var(--primary-color);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 2.2rem;
-            color: var(--accent-color);
-            margin: 5px 0;
-        }
-
-        .hero-date {
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: 15px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--accent-color);
-            border-bottom: 1px solid var(--accent-color);
-            padding: 6px 20px;
-        }
-
-        /* Săgeata care pulsează discret */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            animation: bounce 2s infinite;
-        }
-
-        /* Secțiunile de text */
-        .section {
-            padding: 80px 30px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 1.7rem;
-            color: var(--primary-color);
-            margin-bottom: 35px;
-            position: relative;
-            display: inline-block;
+            color: var(--primary);
+            font-weight: 400;
             letter-spacing: 1px;
         }
 
-        .section-title::after {
+        .hero-date {
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 30px;
+            color: var(--text-dark);
+            padding: 8px 0;
+            position: relative;
+            width: 80%;
+        }
+        .hero-date::before, .hero-date::after {
             content: "";
-            width: 50px;
-            height: 1px;
-            background-color: var(--accent-color);
             position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
+            width: 30px; height: 1px;
+            background-color: var(--accent);
+            left: 50%; transform: translateX(-50%);
+        }
+        .hero-date::before { top: 0; }
+        .hero-date::after { bottom: 0; }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 45px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            animation: bounce 2.5s infinite;
+        }
+
+        .section {
+            padding: 90px 35px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+        .ornament {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-top: 5px;
         }
 
         .story-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            padding: 0 10px;
-            line-height: 1.9;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 2;
         }
 
-        /* Cardul de locație modern */
+        /* Card cu efect de sticla (Frosted Glass) */
         .card {
-            background: #faf9f6;
-            border: 1px solid #f0ede6;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 3px solid var(--accent);
             border-radius: 16px;
-            padding: 35px 25px;
-            margin-top: 10px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-        }
-
-        .card-icon {
-            font-size: 1.6rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
+            padding: 40px 25px;
+            margin-top: 15px;
+            box-shadow: 0 15px 35px rgba(44, 62, 39, 0.05);
         }
 
         .card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 12px;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
             letter-spacing: 0.5px;
         }
 
         .card p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        /* Butoane premium interactive */
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 13px 35px;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
+            margin-top: 25px;
+            padding: 14px 38px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s ease;
+            border-radius: 4px;
+            transition: all 0.4s ease;
             background: transparent;
         }
 
         .btn:hover {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: #ffffff;
-            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 62, 39, 0.2);
         }
 
         .btn-filled {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: #ffffff;
             border: none;
-            box-shadow: 0 6px 20px rgba(44, 62, 39, 0.25);
+            box-shadow: 0 6px 25px rgba(44, 62, 39, 0.2);
         }
 
         .btn-filled:hover {
-            background-color: #1e2c1b;
-            box-shadow: 0 8px 25px rgba(44, 62, 39, 0.35);
+            background-color: #1a2717;
+            box-shadow: 0 8px 30px rgba(44, 62, 39, 0.3);
         }
 
-        /* Animația pentru scroll */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.4rem; }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
     </style>
 </head>
@@ -236,50 +239,60 @@
 
     <div class="scroll-container">
         
-        <!-- SECȚIUNEA 1: COPERTA ELEGANTĂ -->
+        <!-- Elementele SVG pentru frunze de fundal -->
+        <svg class="bg-leaf leaf-1" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
+        <svg class="bg-leaf leaf-2" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
+        <svg class="bg-leaf leaf-3" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
+        <svg class="bg-leaf leaf-4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d='M10,80 C30,40 50,40 90,10 C70,50 40,60 10,80 Z' fill='%232c3e27'/><path d='M30,60 C45,45 60,35 80,20' stroke='%23c4a473' stroke-width='0.5'/></svg>
+
+        <!-- ECRAN 1: COPERTA CU CADRU LUXURY -->
         <div class="hero">
+            <div class="frame-outer"></div>
+            <div class="frame-inner"></div>
+            
             <div class="hero-subtitle">Save the Date</div>
-            <h1>Mihai <span>&</span> Simona</h1>
+            <h1>Mihai</h1>
+            <div class="script-font">și</div>
+            <h1>Simona</h1>
+            
             <div class="hero-date">Septembrie 2027</div>
-            <div class="scroll-indicator">Dă scroll în jos<br>↓</div>
+            <div class="scroll-indicator">Descoperă detaliile<br>↓</div>
         </div>
 
-        <!-- SECȚIUNEA 2: INTRO ROMANTIC -->
+        <!-- ECRAN 2: POVESTE -->
         <div class="section">
-            <h2 class="section-title">Vă invităm la nuntă</h2>
+            <h2 class="section-title">Vă invităm la nuntă <span class="ornament">✦</span></h2>
             <p class="story-text">
                 „Pentru că dragostea nu caută să fie perfectă, ci doar adevărată. Cu inimile pline de bucurie, vă invităm să fiți alături de noi când vom porni în cea mai frumoasă călătorie a vieții noastre.”
             </p>
         </div>
 
-        <!-- SECȚIUNEA 3: DETALII LOCAȚIE -->
-        <div class="section" style="background-color: #fdfdfc;">
-            <h2 class="section-title">Locație & Program</h2>
+        <!-- ECRAN 3: DETALII LOCATIE -->
+        <div class="section">
+            <h2 class="section-title">Locație & Program <span class="ornament">✦</span></h2>
             
             <div class="card">
-                <div class="card-icon">✨</div>
                 <h3>Cununia & Petrecerea</h3>
-                <p>O zi de neuitat petrecută într-un cadru de poveste, pe malul lacului.</p>
+                <p>O zi memorabilă petrecută într-un cadru idilic, pe malul lacului.</p>
                 
-                <p style="margin-top: 20px; font-weight: 600; color: var(--primary-color); font-size: 1.1rem;">Cernica Events</p>
-                <p style="font-size: 0.85rem; font-style: italic; color: #777;">Strada Ștrandului 52, Pantelimon</p>
+                <p style="margin-top: 25px; font-weight: 500; color: var(--primary); font-size: 1.15rem; letter-spacing: 0.5px;">Cernica Events</p>
+                <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin-bottom: 5px;">Strada Ștrandului 52, Pantelimon</p>
                 
-                <a href="https://maps.google.com/?q=Cernica+Events+Strada+Strandului+52+Pantelimon" target="_blank" class="btn">Deschide Navigația</a>
+                <a href="https://maps.google.com/?q=Cernica+Events+Strada+Strandului+52+Pantelimon" target="_blank" class="btn">Vezi pe Hartă</a>
             </div>
         </div>
 
-        <!-- SECȚIUNEA 4: RSVP / CONFIRMARE -->
+        <!-- ECRAN 4: RSVP -->
         <div class="section">
-            <h2 class="section-title">Confirmare</h2>
-            <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem; padding: 0 10px;">
-                Pentru a ne ajuta în organizarea acestui moment special, vă rugăm să ne confirmați prezența dumneavoastră.
+            <h2 class="section-title">Confirmare <span class="ornament">✦</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; padding: 0 5px;">
+                Pentru a ne fi alături în această zi unică, vă rugăm să ne confirmați prezența dumneavoastră accesând butonul de mai jos.
             </p>
             
-            <!-- Aici poți adăuga numărul tău în link după wa.me/407xxxxxxxx -->
             <a href="https://wa.me/?text=Buna!%20Confirmam%20cu%20mare%20drag%20prezenta%20la%20nunta%20voastra!%20-%20Mihai%20si%20Simona" target="_blank" class="btn btn-filled">Confirmă pe WhatsApp</a>
             
-            <p style="margin-top: 50px; font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent-color); font-size: 1.25rem;">
-                Abia așteptăm să sărbătorim împreună!
+            <p style="margin-top: 65px; font-family: 'Pinyon Script', cursive; font-size: 3rem; color: var(--accent);">
+                Vă așteptăm cu drag!
             </p>
         </div>
 
