@@ -30,6 +30,49 @@
             height: 100%;
         }
 
+        /* ECRANUL DE INTRODUCERE (Splash Screen) */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-light);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .splash-trigger {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: var(--primary);
+            line-height: 1.6;
+            animation: fadeInOut 2.5s infinite ease-in-out;
+        }
+
+        .splash-btn {
+            margin-top: 30px;
+            padding: 10px 30px;
+            border: 1px solid var(--accent);
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: transparent;
+        }
+
         .scroll-container {
             max-width: 480px;
             margin: 0 auto;
@@ -61,7 +104,7 @@
             z-index: 2;
         }
 
-        /* Buton Audio plutitor, discret și elegant */
+        /* Buton Audio plutitor */
         .audio-control {
             position: fixed;
             top: 25px;
@@ -87,7 +130,6 @@
             fill: var(--primary);
             transition: all 0.3s ease;
         }
-        /* Animație de rotire când muzica rulează, ca un vinil */
         .audio-playing {
             animation: rotateVinyl 4s linear infinite;
             border-color: var(--primary);
@@ -147,11 +189,19 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--primary);
             font-weight: 400;
             letter-spacing: 1px;
-            line-height: 1.1;
+            line-height: 1.2;
+        }
+
+        .hero-names {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            font-weight: 400;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
         }
 
         .hero-date {
@@ -296,19 +346,34 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Efect subtil de pulsație pentru textul de introducere */
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ELEMENTUL AUDIO (Ascuns vizual, conține o melodie festivă italiană de fundal) -->
+    <!-- ECRAN INIȚIAL DE ÎNTÂMPINARE -->
+    <div id="splash-screen" onclick="dismissSplash()">
+        <button class="splash-trigger">
+            Sunteți invitați la...
+            <span class="ornament" style="margin-top: 15px;">✦</span>
+        </button>
+        <div class="splash-btn">Deschide Invitația</div>
+    </div>
+
+    <!-- ELEMENTUL AUDIO (Rulează fișierul local salvat de tine) -->
     <audio id="bg-music" loop>
-        <source src="ordinary.mp3" type="audio/mpeg">
+        <source src="Ordinary.mp3" type="audio/mpeg">
+        <source src="Ordinary" type="audio/mpeg">
         Browserul tău nu suportă elementul audio.
     </audio>
 
-    <!-- Butonul plutitor de control muzică -->
-    <div class="audio-control" id="audio-btn" onclick="toggleAudio()">
-        <!-- Iconiță de Notă Muzicală / Stare Oprită implicit -->
+    <!-- Buton plutitor control muzică (apare după deblocare) -->
+    <div class="audio-control" id="audio-btn" onclick="toggleAudio()" style="display: none;">
         <svg id="audio-icon" viewBox="0 0 24 24">
             <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
         </svg>
@@ -316,7 +381,7 @@
 
     <div class="scroll-container" id="main-container">
         
-        <!-- BIJUTERII DE DESIGN BACKGROUND -->
+        <!-- BIJUTERII DESIGN STRAT FUNDAL -->
         <svg class="botanical-art art-top-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 10 Q 50 30 80 80" stroke="#2c3e27" stroke-width="0.8" stroke-linecap="round"/>
             <path d="M30 22 C 25 35 15 40 20 50 C 30 45 35 30 30 22 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
@@ -328,17 +393,7 @@
             <path d="M50 40 C 45 60 30 65 35 75 C 45 70 55 55 50 40 Z" fill="#c4a473" fill-opacity="0.12" stroke="#c4a473" stroke-width="0.3"/>
         </svg>
 
-        <svg class="botanical-art art-mid-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 20 Q 40 50 70 90" stroke="#2c3e27" stroke-width="0.7"/>
-            <circle cx="25" cy="35" r="1.2" fill="#c4a473"/>
-        </svg>
-
-        <svg class="botanical-art art-bottom-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M90 90 Q 50 60 10 10" stroke="#2c3e27" stroke-width="0.8"/>
-            <circle cx="70" cy="75" r="1.5" fill="#c4a473"/>
-        </svg>
-
-        <!-- ECRAN 1: COPERTĂ -->
+        <!-- ECRAN 1: COPERTĂ MODIFICATĂ ACCENTUAT -->
         <div class="hero">
             <div class="corner-bracket top-left"></div>
             <div class="corner-bracket top-right"></div>
@@ -346,9 +401,10 @@
             <div class="corner-bracket bottom-right"></div>
             
             <div class="hero-subtitle">Save the Date</div>
-            <h1>Mihai</h1>
-            <div class="script-font">și</div>
-            <h1>Simona</h1>
+            <!-- Schimbat conform cerinței tale speciale -->
+            <h1>Nunta Noastră</h1>
+            
+            <div class="hero-names">Mihai & Simona</div>
             
             <div class="hero-date">Septembrie 2027</div>
             <div class="scroll-indicator">Glisează în jos<br>↓</div>
@@ -369,7 +425,6 @@
             <h2 class="section-title">Programul Zilei <span class="ornament">✦</span></h2>
             
             <div class="card">
-                <!-- Ceremonia Religioasă -->
                 <div class="timeline-item">
                     <span class="time-badge">15:00</span>
                     <h4>Ceremonia Religioasă</h4>
@@ -379,7 +434,6 @@
                 
                 <hr style="border: 0; border-top: 1px dashed rgba(196, 164, 115, 0.3); margin: 15px 0;">
 
-                <!-- Petrecerea -->
                 <div class="timeline-item">
                     <span class="time-badge">16:30</span>
                     <h4>Marea Petrecere</h4>
@@ -407,12 +461,26 @@
 
     </div>
 
-    <!-- SCRIPT LOGICĂ AUDIO PENTRU MOBIL -->
+    <!-- LOGICĂ INTERACȚIUNE ȘI DEBLOCARE AUDIO -->
     <script>
         const music = document.getElementById('bg-music');
         const audioBtn = document.getElementById('audio-btn');
-        const container = document.getElementById('main-container');
-        let hasInteracted = false;
+        const splash = document.getElementById('splash-screen');
+
+        function dismissSplash() {
+            // 1. Ascunde ecranul inițial cu tranziție lină
+            splash.style.opacity = '0';
+            splash.style.transform = 'scale(1.05)';
+            
+            setTimeout(() => {
+                splash.style.display = 'none';
+                // Afișează butonul plutitor de control
+                audioBtn.style.display = 'flex';
+            }, 800);
+
+            // 2. Pornește muzica imediat (apăsarea pe ecran validează acțiunea în browser)
+            playAudio();
+        }
 
         function toggleAudio() {
             if (music.paused) {
@@ -425,28 +493,15 @@
         function playAudio() {
             music.play().then(() => {
                 audioBtn.classList.add('audio-playing');
-            }).catch(err => console.log("Așteaptă interacțiunea utilizatorului pentru audio."));
+            }).catch(err => {
+                console.log("Eroare redare audio:", err);
+            });
         }
 
         function pauseAudio() {
             music.pause();
             audioBtn.classList.remove('audio-playing');
         }
-
-        // Pornește automat muzica la prima atingere/scroll pe pagină
-        container.addEventListener('scroll', () => {
-            if (!hasInteracted) {
-                playAudio();
-                hasInteracted = true;
-            }
-        });
-
-        document.body.addEventListener('touchstart', () => {
-            if (!hasInteracted) {
-                playAudio();
-                hasInteracted = true;
-            }
-        });
     </script>
 
 </body>
