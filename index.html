@@ -30,7 +30,7 @@
             height: 100%;
         }
 
-        /* ECRANUL DE INTRODUCERE (Splash Screen) */
+        /* ECRANUL DE INTRODUCERE */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -73,7 +73,7 @@
             background: transparent;
         }
 
-        /* CONTAINERUL INVITATIEI CU FUNDALUL ARTISTIC INTEGRAT (Mirii schițați + Verighete) */
+        /* FUNDAL NOU: Curat, luminos, doar cu Verighete și Cunună Botanică */
         .scroll-container {
             max-width: 480px;
             margin: 0 auto;
@@ -86,8 +86,8 @@
             box-shadow: 0 0 50px rgba(0,0,0,0.4);
             position: relative;
             
-            /* Fundal vectorizat premium inserat direct în cod - Schiță Mire, Mireasă și Verighete */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%25' height='100%25'%3E%3Cpath d='M 30 120 Q 80 70, 150 110 T 250 80' stroke='%23d4e2d4' stroke-width='1.5' fill='none' opacity='0.4'%3E%3C/path%3E%3Cpath d='M 280 320 Q 330 270, 380 340' stroke='%23e8decf' stroke-width='1.5' fill='none' opacity='0.4'%3E%3C/path%3E%3Cg transform='translate(75, 45)' opacity='0.08'%3E%3Cpath d='M 120 280 L 120 220 Q 120 180, 140 160 Q 148 135, 145 110 Q 155 90, 150 70 Q 140 60, 135 75 Q 125 70, 128 90 Q 120 110, 125 130 Q 110 145, 110 170 L 95 210 L 95 280' stroke='%232c3e27' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3C/path%3E%3Cpath d='M 175 280 Q 160 250, 170 210 Q 175 190, 170 170 Q 180 150, 175 125 Q 185 105, 180 85 Q 170 75, 162 90 Q 158 95, 155 110 Q 160 135, 155 155 Q 160 170, 152 185 L 142 210 Q 135 240, 130 280' stroke='%232c3e27' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3C/path%3E%3Cpath d='M 175 88 Q 220 120, 205 240 Q 190 280, 150 285' stroke='%232c3e27' stroke-width='1' stroke-dasharray='3 3' fill='none'%3E%3C/path%3E%3Ccircle cx='152' cy='180' r='8' stroke='%23c4a473' stroke-width='1.5' fill='none'%3E%3C/circle%3E%3Ccircle cx='158' cy='185' r='6' stroke='%232c3e27' stroke-width='1.2' fill='none'%3E%3C/circle%3E%3Cpath d='M 152 188 L 150 200 M 156 191 L 158 202' stroke='%232c3e27' stroke-width='1.5'%3E%3C/path%3E%3C/g%3E%3Cg transform='translate(200, 345)' opacity='0.15'%3E%3Cellipse cx='-9' cy='0' rx='16' ry='10' stroke='%23c4a473' stroke-width='2.5' fill='none' transform='rotate(-15)'%3E%3C/ellipse%3E%3Cellipse cx='9' cy='3' rx='16' ry='10' stroke='%23b39262' stroke-width='2.5' fill='none' transform='rotate(15)'%3E%3C/ellipse%3E%3C/g%3E%3C/svg%3E");
+            /* Grafică nouă în cod: Cunună fină de flori/frunze și Verighete din aur jos */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%25' height='100%25'%3E%3Ccircle cx='200' cy='200' r='140' stroke='%232c3e27' stroke-width='0.5' fill='none' stroke-dasharray='4 8' opacity='0.15'/%3E%3Cpath d='M110,110 Q140,80 200,90 T290,110' stroke='%232c3e27' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cpath d='M110,290 Q140,320 200,310 T290,290' stroke='%232c3e27' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cg transform='translate(200, 350)' opacity='0.4'%3E%3Cellipse cx='-8' cy='0' rx='14' ry='9' stroke='%23c4a473' stroke-width='2' fill='none' transform='rotate(-15)'/%3E%3Cellipse cx='8' cy='2' rx='14' ry='9' stroke='%23b39262' stroke-width='2' fill='none' transform='rotate(15)'/%3E%3C/g%3E%3C/svg%3E");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -109,7 +109,7 @@
             z-index: 2;
         }
 
-        /* Buton Audio plutitor */
+        /* Buton Audio */
         .audio-control {
             position: fixed;
             top: 25px;
@@ -133,24 +133,11 @@
             width: 18px;
             height: 18px;
             fill: var(--primary);
-            transition: all 0.3s ease;
         }
         .audio-playing {
             animation: rotateVinyl 4s linear infinite;
             border-color: var(--primary);
         }
-
-        /* Frunze discrete colțuri */
-        .botanical-art {
-            position: absolute;
-            width: 200px;
-            height: auto;
-            opacity: 0.12;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .art-top-left { top: -20px; left: -40px; transform: rotate(10deg); width: 220px; }
-        .art-bottom-right { bottom: -30px; right: -40px; transform: rotate(-20deg); width: 240px; }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
@@ -160,7 +147,7 @@
             height: 35px;
             border-color: var(--accent);
             border-style: solid;
-            opacity: 0.4;
+            opacity: 0.3;
         }
         .top-left { top: 30px; left: 30px; border-width: 1px 0 0 1px; }
         .top-right { top: 30px; right: 30px; border-width: 1px 1px 0 0; }
@@ -211,7 +198,6 @@
             font-weight: 500;
         }
 
-        /* INDICATOR DE SCROLL POZIȚIONAT CORECT CONFORM REZOLUȚIILOR */
         .scroll-indicator {
             position: absolute;
             bottom: 45px; 
@@ -249,7 +235,7 @@
             margin-bottom: 20px;
         }
 
-        /* PROGRAM TIMELINE MODERN */
+        /* TIMELINE MODERN */
         .modern-timeline {
             width: 100%;
             max-width: 360px;
@@ -354,10 +340,6 @@
             box-shadow: 0 8px 25px rgba(44, 62, 39, 0.2);
             font-family: 'Montserrat', sans-serif;
         }
-        .btn-filled:hover {
-            background-color: #1a2717;
-            box-shadow: 0 10px 30px rgba(44, 62, 39, 0.35);
-        }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -389,7 +371,6 @@
     <audio id="bg-music" loop preload="auto">
         <source src="ordinary.mp3" type="audio/mpeg">
         <source src="ordinary" type="audio/mpeg">
-        Browserul tău nu suportă elementul audio.
     </audio>
 
     <div class="audio-control" id="audio-btn" onclick="toggleAudio()" style="display: none;">
@@ -400,17 +381,6 @@
 
     <div class="scroll-container" id="main-container">
         
-        <svg class="botanical-art art-top-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10 Q 50 30 80 80" stroke="#2c3e27" stroke-width="0.8" stroke-linecap="round"/>
-            <path d="M30 22 C 25 35 15 40 20 50 C 30 45 35 30 30 22 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
-            <circle cx="30" cy="22" r="1.5" fill="#c4a473"/>
-        </svg>
-
-        <svg class="botanical-art art-bottom-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M90 10 Q 50 40 20 90" stroke="#2c3e27" stroke-width="0.7"/>
-            <path d="M50 40 C 45 60 30 65 35 75 C 45 70 55 55 50 40 Z" fill="#c4a473" fill-opacity="0.12" stroke="#c4a473" stroke-width="0.3"/>
-        </svg>
-
         <div class="hero">
             <div class="corner-bracket top-left"></div>
             <div class="corner-bracket top-right"></div>
@@ -428,96 +398,4 @@
             <div class="scroll-indicator">Vezi detalii<br>↓</div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Povestea Noastră<span class="ornament">✦</span></h2>
-            <p class="story-text">
-                „Pentru că dragostea nu caută să fie perfectă, ci doar adevărată. Cu inimile pline de bucurie și emoție, vă invităm să ne fiți alături în ziua în care vom porni în cea mai frumoasă călătorie a vieții noastre ca soț și soție.”
-            </p>
-            <div class="scroll-indicator">Programul zilei<br>↓</div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title" style="margin-bottom: 40px;">Programul Zilei<span class="ornament">✦</span></h2>
-            
-            <div class="modern-timeline">
-                <div class="timeline-node">
-                    <span class="node-time">15:00</span>
-                    <h3 class="node-title">Ceremonia Religioasă</h3>
-                    <p class="node-desc">Sfânta Taină a Cununiei</p>
-                    <p class="node-subdesc">Locația urmează a fi stabilită</p>
-                </div>
-                
-                <div class="timeline-node">
-                    <span class="node-time">16:30</span>
-                    <h3 class="node-title">Marea Petrecere</h3>
-                    <p class="node-desc">Cernica Events</p>
-                    <p class="node-subdesc">Strada Ștrandului 52, Pantelimon</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn">Direcții Locație</a>
-                </div>
-            </div>
-            
-            <div class="scroll-indicator">Confirmare<br>↓</div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Confirmare<span class="ornament">✦</span></h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem; padding: 0 15px; font-family: 'Montserrat', sans-serif; line-height: 1.6;">
-                Pentru a ne fi alături în această zi unică, vă rugăm să ne confirmați prezența dumneavoastră accesând butonul de mai jos.
-            </p>
-            
-            <a href="https://wa.me/40744446250?text=Buna!%20Confirmam%20cu%20mare%20drag%20prezenta%20la%20nunta%20voastra!" target="_blank" class="btn btn-filled">Confirmă pe WhatsApp</a>
-            
-            <p style="margin-top: 50px; font-family: 'Pinyon Script', cursive; font-size: 3.5rem; color: var(--accent);">
-                Vă așteptăm cu drag!
-            </p>
-        </div>
-
-    </div>
-
-    <script>
-        const music = document.getElementById('bg-music');
-        const audioBtn = document.getElementById('audio-btn');
-        const splash = document.getElementById('splash-screen');
-
-        function dismissSplash() {
-            music.load();
-            
-            splash.style.opacity = '0';
-            splash.style.transform = 'scale(1.05)';
-            
-            setTimeout(() => {
-                splash.style.display = 'none';
-                audioBtn.style.display = 'flex';
-            }, 800);
-
-            playAudio();
-        }
-
-        function toggleAudio() {
-            if (music.paused) {
-                playAudio();
-            } else {
-                pauseAudio();
-            }
-        }
-
-        function playAudio() {
-            const playPromise = music.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    audioBtn.classList.add('audio-playing');
-                }).catch(err => {
-                    console.log("Așteptare interacțiune.", err);
-                    setTimeout(() => { music.play(); audioBtn.classList.add('audio-playing'); }, 300);
-                });
-            }
-        }
-
-        function pauseAudio() {
-            music.pause();
-            audioBtn.classList.remove('audio-playing');
-        }
-    </script>
-
-</body>
-</html>
+        <div class="
