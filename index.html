@@ -17,7 +17,7 @@
 
         :root {
             --primary: #2c3e27;      /* Verde salvie închis */
-            --accent: #c4a473;       /* Auriu Luxury */
+            --accent: #c4a473;       /* Auriu / Champagne */
             --bg-light: #faf7f2;
             --text-dark: #2d332a;
             --text-muted: #5b6356;
@@ -25,7 +25,7 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #121911; /* Fundalul exterior elegant */
+            background-color: #121911;
             color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
@@ -38,12 +38,11 @@
             min-height: 100vh;
             box-shadow: 0 0 50px rgba(0,0,0,0.4);
             position: relative;
-            /* Linii fine de fundal ce imită structura frunzelor */
             background-image: 
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 100 100' opacity='0.03'%3E%3Cpath d='M10 10 C 30 20, 40 40, 50 70 C 60 40, 70 20, 90 10' stroke='%232c3e27' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
         }
 
-        /* Ilustrații Botanice Artistice Fine (SVG Overlays) */
+        /* Ilustrații Botanice Artistice Fine (SVG) */
         .botanical-art {
             position: absolute;
             width: 200px;
@@ -53,8 +52,8 @@
             z-index: 1;
         }
         .art-top-left { top: -20px; left: -40px; transform: rotate(10deg); width: 220px; }
-        .art-mid-right { top: 32%; right: -50px; transform: rotate(-65deg); width: 180px; }
-        .art-mid-left { top: 62%; left: -60px; transform: rotate(15deg); width: 190px; }
+        .art-mid-right { top: 35%; right: -50px; transform: rotate(-65deg); width: 180px; }
+        .art-mid-left { top: 68%; left: -60px; transform: rotate(15deg); width: 190px; }
         .art-bottom-right { bottom: -30px; right: -40px; transform: rotate(-20deg); width: 240px; }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -67,7 +66,7 @@
             margin: 20px 0;
         }
 
-        /* Copertă cu colțare minimaliste elegante */
+        /* Copertă Principală */
         .hero {
             height: 100vh;
             display: flex;
@@ -134,7 +133,7 @@
         }
 
         .section {
-            padding: 95px 35px;
+            padding: 85px 35px;
             text-align: center;
             position: relative;
             z-index: 2;
@@ -143,7 +142,7 @@
         .section-title {
             font-size: 1.65rem;
             color: var(--primary);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             font-weight: 400;
             letter-spacing: 0.5px;
         }
@@ -162,7 +161,7 @@
             line-height: 2;
         }
 
-        /* Card cu bordură fină interioară */
+        /* Card Timeline pentru Program */
         .card {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(8px);
@@ -170,7 +169,7 @@
             border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: 20px;
             padding: 45px 25px;
-            margin-top: 15px;
+            margin-top: 20px;
             box-shadow: 0 15px 40px rgba(44, 62, 39, 0.04);
             position: relative;
         }
@@ -183,30 +182,48 @@
             pointer-events: none;
         }
 
-        .card h3 {
-            font-size: 1.35rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 10px;
+        }
+        
+        .time-badge {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
         }
 
-        .card p {
-            font-size: 0.95rem;
+        .timeline-item h4 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .timeline-item p {
+            font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 8px;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 25px;
-            padding: 14px 40px;
+            margin-top: 15px;
+            padding: 10px 30px;
             border: 1px solid var(--accent);
             color: var(--primary);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             font-weight: 600;
-            border-radius: 0;
             transition: all 0.4s ease;
             background: transparent;
         }
@@ -221,6 +238,9 @@
             background-color: var(--primary);
             color: #ffffff;
             border: none;
+            padding: 14px 40px;
+            font-size: 0.75rem;
+            letter-spacing: 2.5px;
             box-shadow: 0 8px 25px rgba(44, 62, 39, 0.2);
         }
         .btn-filled:hover {
@@ -239,8 +259,8 @@
 
     <div class="scroll-container">
         
-        <!-- ELEMENTE GRAFICE BOTANICE SUBȚIRI ȘI ARTISTICE -->
-        <!-- Stânga Sus -->
+        <!-- ARTISTIC FINE BOTANICAL ILLUSTRATIONS -->
+        <!-- Top Left Branch -->
         <svg class="botanical-art art-top-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 10 Q 50 30 80 80" stroke="#2c3e27" stroke-width="0.8" stroke-linecap="round"/>
             <path d="M30 22 C 25 35 15 40 20 50 C 30 45 35 30 30 22 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
@@ -250,7 +270,7 @@
             <circle cx="45" cy="32" r="1.5" fill="#c4a473"/>
         </svg>
 
-        <!-- Dreapta Mijloc -->
+        <!-- Mid Right Branch -->
         <svg class="botanical-art art-mid-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M90 10 Q 50 40 20 90" stroke="#2c3e27" stroke-width="0.7"/>
             <path d="M70 25 C 75 40 85 45 80 55 C 70 50 65 35 70 25 Z" fill="#2c3e27" fill-opacity="0.1" stroke="#2c3e27" stroke-width="0.3"/>
@@ -258,14 +278,14 @@
             <circle cx="70" cy="25" r="1.5" fill="#c4a473"/>
         </svg>
 
-        <!-- Stânga Mijloc -->
+        <!-- Mid Left Branch -->
         <svg class="botanical-art art-mid-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 20 Q 40 50 70 90" stroke="#2c3e27" stroke-width="0.7"/>
             <path d="M25 35 C 20 50 10 55 15 65 C 25 60 30 45 25 35 Z" fill="#2c3e27" fill-opacity="0.1" stroke="#2c3e27" stroke-width="0.3"/>
             <circle cx="25" cy="35" r="1.2" fill="#c4a473"/>
         </svg>
 
-        <!-- Dreapta Jos -->
+        <!-- Bottom Right Branch -->
         <svg class="botanical-art art-bottom-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M90 90 Q 50 60 10 10" stroke="#2c3e27" stroke-width="0.8"/>
             <path d="M70 75 C 60 60 55 50 65 40 C 75 50 80 65 70 75 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
@@ -290,26 +310,37 @@
             <div class="scroll-indicator">Descoperă detaliile<br>↓</div>
         </div>
 
-        <!-- ECRAN 2: POVESTE -->
+        <!-- ECRAN 2: TEXT PERSONALIZAT -->
         <div class="section">
-            <h2 class="section-title">Vă invităm la nuntă <span class="ornament">✦</span></h2>
+            <h2 class="section-title">Nunta Noastră <span class="ornament">✦</span></h2>
             <p class="story-text">
-                „Pentru că dragostea nu caută să fie perfectă, ci doar adevărată. Cu inimile pline de bucurie, vă invităm să fiți alături de noi când vom porni în cea mai frumoasă călătorie a vieții noastre.”
+                „Pentru că dragostea nu caută să fie perfectă, ci doar adevărată. Cu inimile pline de bucurie și emoție, vă invităm să ne fiți alături în ziua în care vom porni în cea mai frumoasă călătorie a vieții noastre ca soț și soție.”
             </p>
         </div>
 
-        <!-- ECRAN 3: DETALII LOCATIE -->
+        <!-- ECRAN 3: PROGRAMUL ZILEI (TIMELINE) -->
         <div class="section">
-            <h2 class="section-title">Locație & Program <span class="ornament">✦</span></h2>
+            <h2 class="section-title">Programul Zilei <span class="ornament">✦</span></h2>
             
             <div class="card">
-                <h3>Cununia & Petrecerea</h3>
-                <p>O zi memorabilă petrecută într-un cadru idilic, pe malul lacului.</p>
+                <!-- Ceremonia Religioasă -->
+                <div class="timeline-item">
+                    <span class="time-badge">15:00</span>
+                    <h4>Ceremonia Religioasă</h4>
+                    <p>Sfânta Taină a Cununiei</p>
+                    <p style="font-size: 0.8rem; font-style: italic; color: var(--text-muted); margin-top: 2px;">Locația urmează a fi stabilită</p>
+                </div>
                 
-                <p style="margin-top: 25px; font-weight: 500; color: var(--primary); font-size: 1.15rem; letter-spacing: 0.5px;">Cernica Events</p>
-                <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin-bottom: 5px;">Strada Ștrandului 52, Pantelimon</p>
-                
-                <a href="https://maps.google.com/?q=Cernica+Events+Strada+Strandului+52+Pantelimon" target="_blank" class="btn">Vezi pe Hartă</a>
+                <hr style="border: 0; border-top: 1px dashed rgba(196, 164, 115, 0.3); margin: 25px 0;">
+
+                <!-- Petrecerea -->
+                <div class="timeline-item">
+                    <span class="time-badge">16:30</span>
+                    <h4>Marea Petrecere</h4>
+                    <p>Cernica Events</p>
+                    <p style="font-size: 0.8rem; font-style: italic; color: var(--text-muted); margin-top: 2px;">Strada Ștrandului 52, Pantelimon</p>
+                    <a href="https://maps.google.com/?q=Cernica+Events+Strada+Strandului+52+Pantelimon" target="_blank" class="btn">Direcții Locație</a>
+                </div>
             </div>
         </div>
 
@@ -320,7 +351,7 @@
                 Pentru a ne fi alături în această zi unică, vă rugăm să ne confirmați prezența dumneavoastră accesând butonul de mai jos.
             </p>
             
-            <a href="https://wa.me/?text=Buna!%20Confirmam%20cu%20mare%20drag%20prezenta%20la%20nunta%20voastra!%20-%20Mihai%20si%20Simona" target="_blank" class="btn btn-filled">Confirmă pe WhatsApp</a>
+            <a href="https://wa.me/?text=Buna!%20Confirmam%20cu%20mare%20drag%20prezenta%20la%20nunta%20voastra!" target="_blank" class="btn btn-filled">Confirmă pe WhatsApp</a>
             
             <p style="margin-top: 65px; font-family: 'Pinyon Script', cursive; font-size: 3.2rem; color: var(--accent);">
                 Vă așteptăm cu drag!
