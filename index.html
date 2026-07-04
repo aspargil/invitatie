@@ -95,7 +95,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 50px 30px;
+            padding: 50px 30px 80px 30px; /* Adăugat padding mai mare jos pentru a lăsa spațiu indicatorului */
             scroll-snap-align: start;
             scroll-snap-stop: always;
             position: relative;
@@ -169,7 +169,7 @@
             font-weight: 400;
             letter-spacing: 1px;
             line-height: 1.2;
-            margin-bottom: 45px; /* Mărit substanțial distanțarea conform cerinței */
+            margin-bottom: 45px; /* Spațiu generos între titlu și nume */
         }
 
         .hero-names {
@@ -207,15 +207,17 @@
             font-weight: 500;
         }
 
+        /* INDICATOR DE SCROLL REPOZIȚIONAT ȘI OPTIMIZAT */
         .scroll-indicator {
             position: absolute;
-            bottom: 25px;
+            bottom: 45px; /* Ridicat semnificativ mai sus pentru a se vedea pe orice telefon */
             font-size: 0.65rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-muted);
             font-family: 'Montserrat', sans-serif;
             animation: bounce 2.5s infinite;
+            z-index: 10;
         }
 
         .section-title {
@@ -240,9 +242,10 @@
             line-height: 2.2;
             font-weight: 400;
             padding: 0 15px;
+            margin-bottom: 20px;
         }
 
-        /* PROGRAM TIMELINE MODERN */
+        /* PROGRAM TIMELINE MODERN ACCENTUAT */
         .modern-timeline {
             width: 100%;
             max-width: 360px;
@@ -252,7 +255,6 @@
             text-align: left;
         }
 
-        /* Linia verticală din spate */
         .modern-timeline::before {
             content: '';
             position: absolute;
@@ -272,7 +274,6 @@
             margin-bottom: 0;
         }
 
-        /* Punctul pe axă */
         .timeline-node::before {
             content: '';
             position: absolute;
@@ -284,7 +285,6 @@
             background-color: var(--bg-light);
             border: 2px solid var(--accent);
             z-index: 2;
-            transition: all 0.3s ease;
         }
 
         .node-time {
@@ -357,8 +357,8 @@
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-6px); }
-            60% { transform: translateY(-3px); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
 
         @keyframes rotateVinyl {
@@ -374,7 +374,6 @@
 </head>
 <body>
 
-    <!-- ECRAN INIȚIAL DE ÎNTÂMPINARE -->
     <div id="splash-screen" onclick="dismissSplash()">
         <button class="splash-trigger">
             Sunteți invitați la...
@@ -383,14 +382,12 @@
         <div class="splash-btn">Deschide Invitația</div>
     </div>
 
-    <!-- ELEMENTUL AUDIO -->
     <audio id="bg-music" loop preload="auto">
         <source src="ordinary.mp3" type="audio/mpeg">
         <source src="ordinary" type="audio/mpeg">
         Browserul tău nu suportă elementul audio.
     </audio>
 
-    <!-- Buton plutitor control muzică -->
     <div class="audio-control" id="audio-btn" onclick="toggleAudio()" style="display: none;">
         <svg id="audio-icon" viewBox="0 0 24 24">
             <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
@@ -399,7 +396,6 @@
 
     <div class="scroll-container" id="main-container">
         
-        <!-- BIJUTERII DESIGN STRAT FUNDAL -->
         <svg class="botanical-art art-top-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 10 Q 50 30 80 80" stroke="#2c3e27" stroke-width="0.8" stroke-linecap="round"/>
             <path d="M30 22 C 25 35 15 40 20 50 C 30 45 35 30 30 22 Z" fill="#2c3e27" fill-opacity="0.12" stroke="#2c3e27" stroke-width="0.3"/>
@@ -411,7 +407,6 @@
             <path d="M50 40 C 45 60 30 65 35 75 C 45 70 55 55 50 40 Z" fill="#c4a473" fill-opacity="0.12" stroke="#c4a473" stroke-width="0.3"/>
         </svg>
 
-        <!-- ECRAN 1: COPERTĂ DISTANȚATĂ -->
         <div class="hero">
             <div class="corner-bracket top-left"></div>
             <div class="corner-bracket top-right"></div>
@@ -429,7 +424,6 @@
             <div class="scroll-indicator">Vezi detalii<br>↓</div>
         </div>
 
-        <!-- ECRAN 2: POVESTEA NOASTRĂ (Titlu unic și curat) -->
         <div class="section">
             <h2 class="section-title">Povestea Noastră<span class="ornament">✦</span></h2>
             <p class="story-text">
@@ -438,12 +432,10 @@
             <div class="scroll-indicator">Programul zilei<br>↓</div>
         </div>
 
-        <!-- ECRAN 3: PROGRAMUL ZILEI MODERNIZAT TIMELINE -->
         <div class="section">
             <h2 class="section-title" style="margin-bottom: 40px;">Programul Zilei<span class="ornament">✦</span></h2>
             
             <div class="modern-timeline">
-                <!-- Nodul 1 -->
                 <div class="timeline-node">
                     <span class="node-time">15:00</span>
                     <h3 class="node-title">Ceremonia Religioasă</h3>
@@ -451,20 +443,18 @@
                     <p class="node-subdesc">Locația urmează a fi stabilită</p>
                 </div>
                 
-                <!-- Nodul 2 -->
                 <div class="timeline-node">
                     <span class="node-time">16:30</span>
                     <h3 class="node-title">Marea Petrecere</h3>
                     <p class="node-desc">Cernica Events</p>
                     <p class="node-subdesc">Strada Ștrandului 52, Pantelimon</p>
-                    <a href="https://maps.google.com/?q=Cernica+Events+Strada+Strandului+52+Pantelimon" target="_blank" class="btn">Direcții Locație</a>
+                    <a href="http://maps.google.com/?q=Cernica+Events+Pantelimon" target="_blank" class="btn">Direcții Locație</a>
                 </div>
             </div>
             
             <div class="scroll-indicator">Confirmare<br>↓</div>
         </div>
 
-        <!-- ECRAN 4: RSVP -->
         <div class="section">
             <h2 class="section-title">Confirmare<span class="ornament">✦</span></h2>
             <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem; padding: 0 15px; font-family: 'Montserrat', sans-serif; line-height: 1.6;">
@@ -480,7 +470,6 @@
 
     </div>
 
-    <!-- LOGICĂ REDARE AUDIO -->
     <script>
         const music = document.getElementById('bg-music');
         const audioBtn = document.getElementById('audio-btn');
@@ -514,7 +503,7 @@
                 playPromise.then(() => {
                     audioBtn.classList.add('audio-playing');
                 }).catch(err => {
-                    console.log("Așteptare interacțiune suplimentară.", err);
+                    console.log("Așteptare interacțiune.", err);
                     setTimeout(() => { music.play(); audioBtn.classList.add('audio-playing'); }, 300);
                 });
             }
